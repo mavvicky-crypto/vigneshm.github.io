@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vignesh M – B2B Sales & Business Development</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;background:#fff;font-size:16px;line-height:1.6}
+
+  /* NAV */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid #e8e8e8;position:sticky;top:0;background:#fff;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+  .nav-brand{font-size:18px;font-weight:600;color:#1A5276;text-decoration:none}
+  .nav-links{display:flex;gap:1.75rem}
+  .nav-links a{font-size:14px;color:#555;text-decoration:none;transition:color 0.2s}
+  .nav-links a:hover{color:#1A5276}
+  .nav-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:#1A5276}
+
+  /* HERO */
+  .hero{background:#1A5276;color:#fff;padding:4rem 2rem;text-align:center}
+  .hero-initials{width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:600;margin:0 auto 1.25rem;border:2px solid rgba(255,255,255,0.3)}
+  .hero h1{font-size:32px;font-weight:600;margin-bottom:0.5rem}
+  .hero .subtitle{font-size:16px;opacity:0.85;margin-bottom:0.25rem}
+  .hero-meta{display:flex;justify-content:center;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+  .hero-meta span{font-size:13px;opacity:0.8;display:flex;align-items:center;gap:6px}
+  .hero-cta{display:flex;justify-content:center;gap:12px;margin-top:2rem;flex-wrap:wrap}
+  .btn-primary{background:#fff;color:#1A5276;border:none;padding:11px 28px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:opacity 0.2s}
+  .btn-primary:hover{opacity:0.9}
+  .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.6);padding:11px 28px;border-radius:8px;font-size:14px;cursor:pointer;text-decoration:none;transition:background 0.2s}
+  .btn-outline:hover{background:rgba(255,255,255,0.1)}
+
+  /* SECTIONS */
+  section{padding:3rem 2rem;max-width:900px;margin:0 auto}
+  .section-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1A5276;margin-bottom:0.4rem}
+  .section-title{font-size:22px;font-weight:600;margin-bottom:1.75rem;color:#111}
+  .section-divider{background:#f5f5f5;padding:3rem 0}
+  .section-divider section{padding:3rem 2rem}
+
+  /* STATS */
+  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:1.75rem}
+  .stat-card{background:#f8f9fa;border:1px solid #e8e8e8;border-radius:10px;padding:1.25rem;text-align:center}
+  .stat-num{font-size:30px;font-weight:700;color:#1A5276}
+  .stat-lbl{font-size:13px;color:#777;margin-top:4px}
+  .about-text{font-size:15px;color:#555;line-height:1.8}
+
+  /* EXPERIENCE */
+  .exp-item{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:1.5rem;margin-bottom:14px;border-left:4px solid #1A5276;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+  .exp-title{font-size:16px;font-weight:600;color:#111}
+  .exp-company{font-size:13px;color:#1A5276;margin-top:3px;font-weight:500}
+  .exp-date{font-size:12px;color:#888;white-space:nowrap;background:#f0f4f8;padding:4px 10px;border-radius:20px}
+  .exp-bullets{padding-left:1.1rem;margin-top:12px}
+  .exp-bullets li{font-size:14px;color:#555;line-height:1.75;margin-bottom:5px}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .skill-group{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:1.25rem;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  .skill-group-title{font-size:13px;font-weight:600;color:#1A5276;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .skill-tag{display:inline-block;font-size:12px;background:#f0f4f8;color:#444;border:1px solid #dde5ee;border-radius:6px;padding:4px 10px;margin:3px 3px 3px 0}
+
+  /* PROJECTS */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .proj-card{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:1.25rem;box-shadow:0 1px 4px rgba(0,0,0,0.04);transition:box-shadow 0.2s}
+  .proj-card:hover{box-shadow:0 4px 12px rgba(26,82,118,0.1)}
+  .proj-icon{width:40px;height:40px;border-radius:10px;background:#E8F0F8;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .proj-icon i{font-size:20px;color:#1A5276}
+  .proj-title{font-size:14px;font-weight:600;margin-bottom:8px;color:#111}
+  .proj-desc{font-size:13px;color:#666;line-height:1.65}
+
+  /* CONTACT */
+  .contact-wrapper{max-width:520px;margin:0 auto}
+  .contact-card{background:#fff;border:1px solid #e8e8e8;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+  .contact-row{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid #f0f0f0;text-decoration:none;color:inherit;transition:background 0.15s}
+  .contact-row:last-child{border-bottom:none}
+  .contact-row:hover{background:#f8f9fa}
+  .contact-icon{width:40px;height:40px;border-radius:10px;background:#E8F0F8;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .contact-icon i{font-size:20px;color:#1A5276}
+  .contact-label{font-size:11px;color:#999;text-transform:uppercase;letter-spacing:0.05em}
+  .contact-value{font-size:14px;font-weight:500;color:#111}
+
+  /* FOOTER */
+  footer{background:#1A5276;color:rgba(255,255,255,0.75);text-align:center;padding:1.5rem;font-size:13px}
+  footer a{color:rgba(255,255,255,0.9);text-decoration:none}
+
+  /* MOBILE */
+  @media(max-width:640px){
+    .nav-links{display:none;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid #e8e8e8;padding:1rem 2rem;gap:1rem}
+    .nav-links.open{display:flex}
+    .nav-toggle{display:block}
+    .hero h1{font-size:26px}
+    .hero-meta{gap:1rem}
+    section{padding:2.5rem 1.25rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">Vignesh M</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-initials">VM</div>
+  <h1>Vignesh M</h1>
+  <p class="subtitle">B2B Sales &amp; Business Development | Channel &amp; Territory Sales | Pipeline Management</p>
+  <div class="hero-meta">
+    <span><i class="ti ti-map-pin"></i> Coimbatore, Tamil Nadu</span>
+    <span><i class="ti ti-briefcase"></i> 3.5+ Years Experience</span>
+    <span><i class="ti ti-target"></i> 120%+ Quota Achiever</span>
+  </div>
+  <div class="hero-cta">
+    <a class="btn-primary" href="#contact">Get in Touch</a>
+    <a class="btn-outline" href="#experience">View Experience</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About me</div>
+  <div class="section-title">Results-driven B2B sales professional</div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-num">3.5+</div><div class="stat-lbl">Years in B2B sales</div></div>
+    <div class="stat-card"><div class="stat-num">50+</div><div class="stat-lbl">B2B clients onboarded</div></div>
+    <div class="stat-card"><div class="stat-num">8+</div><div class="stat-lbl">Districts managed</div></div>
+    <div class="stat-card"><div class="stat-num">120%+</div><div class="stat-lbl">Quarterly quota delivery</div></div>
+  </div>
+  <p class="about-text">Territory sales professional with expertise in channel development, dealer management, and B2B account management at Hawkins Cookers Limited. Skilled in CRM-driven pipeline management, go-to-market strategy execution, and cross-functional collaboration — consistently driving market share growth and exceeding targets across multi-district territories in Tamil Nadu. Actively transitioning into B2B tech/SaaS and enterprise sales roles.</p>
+</section>
+
+<!-- EXPERIENCE -->
+<div class="section-divider">
+<section id="experience">
+  <div class="section-label">Career history</div>
+  <div class="section-title">Professional experience</div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <div class="exp-title">Territory Sales Officer – Business Development</div>
+        <div class="exp-company">Hawkins Cookers Limited</div>
+      </div>
+      <div class="exp-date">Feb 2024 – Present · Coimbatore</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Onboarded 50+ B2B clients using BANT-style qualification, expanding customer base by 30%</li>
+      <li>Delivered 120%+ of quarterly sales targets consistently through disciplined pipeline management</li>
+      <li>Built Excel-based KPI dashboards and forecasting models — reduced reporting time by 50%, improved forecast accuracy by 50%</li>
+      <li>Led go-to-market campaigns across 8+ districts driving 18% regional sales lift and 15% market-share gain</li>
+      <li>Coached field sales team achieving a 20% improvement in overall team productivity</li>
+      <li>Engaged senior decision-makers (procurement heads, brand owners) to secure high-value supply partnerships</li>
+    </ul>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <div class="exp-title">Assistant Sales Officer</div>
+        <div class="exp-company">Hawkins Cookers Limited</div>
+      </div>
+      <div class="exp-date">Aug 2022 – Jan 2024 · Coimbatore</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Achieved 15% YoY B2B revenue growth through structured account management and upselling strategies</li>
+      <li>Maintained 90% customer satisfaction rate, driving 25% growth in repeat business</li>
+      <li>Contributed to 15% market-share gain through market data analysis and competitor intelligence</li>
+      <li>Boosted brand visibility by 30% through multi-channel marketing and awareness campaigns</li>
+      <li>Enhanced digital and e-commerce sales channels achieving 35% increase in digital sales throughput</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Expertise</div>
+  <div class="section-title">Core skills</div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="ti ti-chart-bar"></i> Sales &amp; Growth</div>
+      <span class="skill-tag">B2B Territory Sales</span>
+      <span class="skill-tag">Pipeline Management</span>
+      <span class="skill-tag">Lead Generation</span>
+      <span class="skill-tag">Cold Calling</span>
+      <span class="skill-tag">Upselling &amp; Cross-selling</span>
+      <span class="skill-tag">BANT Qualification</span>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="ti ti-users"></i> Channel &amp; BD</div>
+      <span class="skill-tag">Channel Development</span>
+      <span class="skill-tag">Dealer Management</span>
+      <span class="skill-tag">Client Onboarding</span>
+      <span class="skill-tag">Go-to-Market Strategy</span>
+      <span class="skill-tag">Negotiation</span>
+      <span class="skill-tag">Stakeholder Engagement</span>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="ti ti-chart-line"></i> Analytics &amp; Reporting</div>
+      <span class="skill-tag">CRM Systems</span>
+      <span class="skill-tag">MS Excel Dashboards</span>
+      <span class="skill-tag">Sales Forecasting</span>
+      <span class="skill-tag">KPI Tracking</span>
+      <span class="skill-tag">Market Analysis</span>
+      <span class="skill-tag">PowerPoint Reporting</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<div class="section-divider">
+<section id="projects">
+  <div class="section-label">Highlights</div>
+  <div class="section-title">Key achievements</div>
+  <div class="projects-grid">
+    <div class="proj-card">
+      <div class="proj-icon"><i class="ti ti-trophy"></i></div>
+      <div class="proj-title">Territory market share expansion</div>
+      <div class="proj-desc">Achieved 15% market-share gain across 8+ districts through data-driven go-to-market strategies and competitive category analysis.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><i class="ti ti-report-analytics"></i></div>
+      <div class="proj-title">Sales forecasting dashboard</div>
+      <div class="proj-desc">Built Excel-based KPI dashboards and forecasting models reducing manual reporting time by 50% and improving forecast accuracy by 50%.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><i class="ti ti-building-store"></i></div>
+      <div class="proj-title">Retail activation program</div>
+      <div class="proj-desc">Revamped in-store product displays across retail touchpoints in collaboration with merchants, delivering 15% sales lift through improved exposure.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><i class="ti ti-users-group"></i></div>
+      <div class="proj-title">Channel partner network build</div>
+      <div class="proj-desc">Identified, recruited, and onboarded 50+ B2B clients while providing ongoing account management to drive long-term seller growth and retention.</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get in touch</div>
+  <div class="section-title">Contact</div>
+  <div class="contact-wrapper">
+    <div class="contact-card">
+      <a class="contact-row" href="mailto:mavvicky@gmail.com">
+        <div class="contact-icon"><i class="ti ti-mail"></i></div>
+        <div><div class="contact-label">Email</div><div class="contact-value">mavvicky@gmail.com</div></div>
+      </a>
+      <a class="contact-row" href="tel:+917708509879">
+        <div class="contact-icon"><i class="ti ti-phone"></i></div>
+        <div><div class="contact-label">Phone</div><div class="contact-value">+91-7708509879</div></div>
+      </a>
+      <div class="contact-row">
+        <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
+        <div><div class="contact-label">Location</div><div class="contact-value">Coimbatore, Tamil Nadu, India</div></div>
+      </div>
+      <a class="contact-row" href="https://www.linkedin.com/in/vignesh-m-50ab18163" target="_blank" rel="noopener">
+        <div class="contact-icon"><i class="ti ti-brand-linkedin"></i></div>
+        <div><div class="contact-label">LinkedIn</div><div class="contact-value">linkedin.com/in/vignesh-m-50ab18163</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Vignesh M &nbsp;·&nbsp; Coimbatore, Tamil Nadu &nbsp;·&nbsp; <a href="mailto:mavvicky@gmail.com">mavvicky@gmail.com</a></p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+</body>
+</html>
